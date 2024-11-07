@@ -1,16 +1,63 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import s from './Header.module.css'
+import $ from 'jquery'
 
 const Header = (props) => {
+  const [isActiveMenu, setIsActiveMenu] = useState(false)
+
+  useEffect(()=>{
+    const widthScreen = $('nav').width()
+    const herightScreen = $('nav').height()
+    const diag = Math.sqrt( Math.pow(widthScreen, 2) + Math.pow(herightScreen, 2) )
+
+    const toggleMenu = () => {
+      // isActiveMenu ? setIsActiveMenu(false) : setIsActiveMenu(true);
+      $(`.${s.top}, .${s.center}, .${s.bottom}`).width(diag)
+      if($('nav').is(':visible')){
+          $(`.${s.anchors}`).fadeOut("fast");
+          $(`.${s.top}, .${s.center}, .${s.bottom}`).animate(
+              {
+                  height: "0",
+              }, 
+              1000, 
+              () => {
+                  $('nav').hide("fast");
+              }
+          );
+      }else{
+          $('nav').show("fast");
+          $(`.${s.top}, .${s.center}, .${s.bottom}`).show("fast").animate(
+              {
+                  height: diag,
+              }, 
+              1000, 
+              () => {
+                  $(`.${s.anchors}`).fadeIn("fast")
+              }
+          );
+      }
+    }
+
+    $(`.${s.menuBtn}`).on('click', toggleMenu)
+    $(`.${s.anchorLink}`).on('click', toggleMenu)
+  }, [isActiveMenu])
+
   return (
     <header>
       <p className={s.logo}>Logo</p>
-      <ul>
-        <li><a href='#home' className={s.anchorLink}>Home</a></li>
-        <li><a href='#about' className={s.anchorLink}>About</a></li>
-        <li><a href='#service' className={s.anchorLink}>Service</a></li>
-        <li><a href='#contact' className={s.anchorLink}>Contact</a></li>
-      </ul>
+
+      <button className={s.menuBtn} type="button">Menu</button>
+      <nav>
+        <div className={s.top}></div>
+        <div className={s.center}></div>
+        <div className={s.bottom}></div>
+        <ul className={s.anchors}>
+          <li><a href='#home' className={s.anchorLink}>Home</a></li>
+          <li><a href='#about' className={s.anchorLink}>About</a></li>
+          <li><a href='#service' className={s.anchorLink}>Service</a></li>
+          <li><a href='#contact' className={s.anchorLink}>Contact</a></li>
+        </ul>
+      </nav>
     </header>
   )
 };
