@@ -1,0 +1,119 @@
+.home {
+  height: 100vh;
+  background-image: url("/public/assets/hero/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.home,
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  position: absolute;
+  flex-direction: column;
+}
+
+.sectionheader {
+  font-size: 92px;
+  font-weight: 900;
+}
+
+.moreLink {
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 28px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, .5);
+  border: none;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.home img {
+  pointer-events: none;
+  position: absolute;
+}
+
+.graves,
+.fenceLeft,
+.fenceRight,
+.grass {
+  bottom: 0;
+}
+
+.graves,
+.grass {
+  width: 100%;
+}
+
+.treeLeft,
+.treeRight,
+.fenceLeft,
+.fenceRight {
+  height: 80%;
+}
+
+.treeLeft,
+.treeRight {
+  top: 0;
+}
+
+.fenceLeft,
+.fenceRight {
+  position: fixed;
+}
+
+.treeLeft,
+.fenceLeft {
+  left: -100%;
+}
+
+.treeLeft,
+.fenceRight {
+  right: -100%;
+}
+
+.ghost {
+  width: 120px;
+  left: -120px;
+  bottom: 0;
+}
+
+@media (width <= 1024px) {
+  
+}
+
+@media (width <= 600px) {
+  .content {
+    position: absolute;
+    top: 70%
+  }
+  .sectionheader {
+    font-size: 48px;
+  }
+  
+  .moreLink {
+    font-size: 14px;
+  }
+  
+  .treeLeft,
+  .treeRight,
+  .fenceLeft,
+  .fenceRight {
+    height: 60%;
+  }
+
+  .graves,
+  .grass {
+    width: 600px;
+  }
+}
