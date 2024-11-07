@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useLayoutEffect } from "react"
 import s from './Home.module.css'
 import $ from 'jquery'
 import { gsap } from "gsap"
@@ -12,14 +12,19 @@ const Home = (props) => {
     fenceLeftWidth = $(`.${s.fenceLeft}`).width(),
     fenceRightWidth = $(`.${s.fenceRight}`).width(),
     treeLeftWidth = $(`.${s.treeLeft}`).width(),
-    treeRightWidth = $(`.${s.treeRight}`).width();
+    treeRightWidth = $(`.${s.treeRight}`).width(),
+    fenceLeft = $(`.${s.fenceLeft}`),
+    fenceRight = $(`.${s.fenceRight}`);
+
+    fenceLeft.css('left', -fenceLeftWidth);    
+    fenceRight.css('right', -fenceRightWidth);
 
     tlLoad
     .from ($(`.${s.graves}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0")
     .from ($(`.${s.grass}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0.5")
     .fromTo(
       $(`.${s.fenceLeft}`), 
-      { left: -fenceLeftWidth }, 
+      { left: -fenceLeft.width() }, 
       { left: -fenceLeftWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
       "3"
     )
@@ -53,7 +58,7 @@ const Home = (props) => {
     )
   },[])
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     const scrollTl = gsap.timeline(),
     ghostWidth = $(`.${s.ghost}`).width();
     

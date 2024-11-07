@@ -89,7 +89,22 @@
 }
 
 @media (width <= 1024px) {
-  
+  .treeLeft,
+  .treeRight,
+  .fenceLeft,
+  .fenceRight {
+    height: 50%;
+  }
+
+  .treeLeft,
+  .fenceLeft {
+    left: -100%;
+  }
+
+  .treeLeft,
+  .fenceRight {
+    right: -100%;
+  }
 }
 
 @media (width <= 600px) {
