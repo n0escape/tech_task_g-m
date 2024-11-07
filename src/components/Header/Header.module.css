@@ -23,10 +23,12 @@ header > * {
   flex: 3;
   font-size: 32px;
   font-weight: 900;
+  z-index: 101;
 }
 
 nav {
   flex: 7;
+  z-index: 101;
 }
 
 .top {
@@ -82,6 +84,9 @@ nav {
 }
 
 .menuBtn {
+  background: rgba(0, 0, 0, .5);
+  outline: none;
+  border: none;
   display: none;
   padding: 10px;
   border-radius: 12px;
@@ -118,13 +123,9 @@ nav {
     height: 100%;
     flex-direction: column;
     justify-content: space-evenly;
-  
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+  }
+
+  .anchorLink {
+    font-size: 32px;
   }
 }

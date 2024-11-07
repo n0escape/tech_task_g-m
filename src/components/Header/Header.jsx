@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import s from './Header.module.css'
 import $ from 'jquery'
 
 const Header = (props) => {
-  const [isActiveMenu, setIsActiveMenu] = useState(false)
 
   useEffect(()=>{
     const widthScreen = $('nav').width()
@@ -11,7 +10,6 @@ const Header = (props) => {
     const diag = Math.sqrt( Math.pow(widthScreen, 2) + Math.pow(herightScreen, 2) )
 
     const toggleMenu = () => {
-      // isActiveMenu ? setIsActiveMenu(false) : setIsActiveMenu(true);
       $(`.${s.top}, .${s.center}, .${s.bottom}`).width(diag)
       if($('nav').is(':visible')){
           $(`.${s.anchors}`).fadeOut("fast");
@@ -40,7 +38,7 @@ const Header = (props) => {
 
     $(`.${s.menuBtn}`).on('click', toggleMenu)
     $(`.${s.anchorLink}`).on('click', toggleMenu)
-  }, [isActiveMenu])
+  }, [])
 
   return (
     <header>
