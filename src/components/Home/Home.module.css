@@ -25,7 +25,51 @@
 .sectionheader {
   font-size: 92px;
   font-weight: 900;
+  text-transform: uppercase;
+
+  animation: textShadow both 2s infinite;
 }
+
+.sectionheader span{
+  animation: textShadow both 2s infinite;
+}
+
+.sectionheader span:nth-child(1){
+  animation-delay: .1s;
+}
+
+.sectionheader span:nth-child(2){
+  animation-delay: .2s;
+}
+
+.sectionheader span:nth-child(3){
+  animation-delay: .3s;
+}
+
+.sectionheader span:nth-child(4){
+  animation-delay: .4s;
+}
+
+.sectionheader span:nth-child(5){
+  animation-delay: .5s;
+}
+
+.sectionheader span:nth-child(6){
+  animation-delay: .6s;
+}
+
+.sectionheader span:nth-child(7){
+  animation-delay: .7s;
+}
+
+.sectionheader span:nth-child(8){
+  animation-delay: .8s;
+}
+
+.sectionheader span:nth-child(9){
+  animation-delay: .9s;
+}
+
 
 .moreLink {
   text-decoration: none;
@@ -86,6 +130,18 @@
   bottom: 0;
 }
 
+
+/* Animation Keyframes*/
+@keyframes textShadow {
+  0%, 100% { 
+    text-shadow: 0 0 0 rgba(0, 0, 0, .5);
+  }
+  50% {
+    text-shadow: 10px 10px 20px rgba(0, 0, 0, .3); 
+  }
+}
+
+/* Media adaptation */
 @media (width <= 1024px) {
   .treeLeft,
   .treeRight,

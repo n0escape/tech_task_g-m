@@ -88,10 +88,15 @@ const Home = (props) => {
     );
   }, [])
 
+  const header = "halloween";
+  const letters = header.split('')
+
   return (
     <section id="home" className={s.home}>
       <div className={s.content}>
-        <h2 className={s.sectionheader}>Helloween</h2>
+        <h2 className={s.sectionheader}>
+          {letters.map((letter, index) => <span key={index}>{letter}</span>)}
+        </h2>
         <a className={s.moreLink} href="#about">Show more</a>
       </div>
       <img src={`${process.env.PUBLIC_URL}/assets/hero/tree-left.png`} alt="tree left" className={s.treeLeft} />
