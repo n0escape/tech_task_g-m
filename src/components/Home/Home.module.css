@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  overflow-x: hidden;
 }
 
 .home,
@@ -52,7 +53,7 @@
 
 .graves,
 .grass {
-  width: 100%;
+  max-width: 100vw;
 }
 
 .treeLeft,
