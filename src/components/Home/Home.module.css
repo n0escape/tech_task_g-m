@@ -1,11 +1,12 @@
 .home {
   height: 100vh;
+  width: 100%;
   background-image: url("/public/assets/hero/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .home,
@@ -18,6 +19,7 @@
 .content {
   position: absolute;
   flex-direction: column;
+  transform: translateY(-100px)
 }
 
 .sectionheader {
@@ -60,7 +62,7 @@
 .treeRight,
 .fenceLeft,
 .fenceRight {
-  height: 80%;
+  width: 55%;
 }
 
 .treeLeft,
@@ -68,6 +70,15 @@
   top: 0;
 }
 
+.treeLeft,
+.fenceLeft {
+  left: -100%;
+}
+
+.treeRight,
+.fenceRight {
+  right: -100%;
+}
 
 .ghost {
   width: 120px;
@@ -80,25 +91,16 @@
   .treeRight,
   .fenceLeft,
   .fenceRight {
-    height: 50%;
-  }
-
-  .treeLeft,
-  .fenceLeft {
-    left: -100%;
-  }
-
-  .treeLeft,
-  .fenceRight {
-    right: -100%;
+    width: 50%;
   }
 }
 
 @media (width <= 600px) {
-  .content {
-    position: absolute;
-    top: 70%
+  .content{
+    top: 60%;
+    transform: translateY(-50%)
   }
+
   .sectionheader {
     font-size: 48px;
   }
@@ -108,14 +110,36 @@
   }
   
   .treeLeft,
+  .treeRight {
+    top: 50%;
+    transform: translateY(-50%)
+  }
+
+  .treeLeft,
   .treeRight,
   .fenceLeft,
   .fenceRight {
-    height: 60%;
+    width: 75%;
   }
 
   .graves,
   .grass {
     width: 600px;
+  }
+}
+
+@media (width <= 300px) {
+  .content {
+    align-items: center;
+    text-align: center;
+  }
+  .sectionheader {
+    width: 100%;
+    font-size: 24px;
+  }
+  
+  .moreLink {
+    font-size: auto;
+    width: 100%;
   }
 }
