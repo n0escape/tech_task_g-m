@@ -68,21 +68,6 @@
   top: 0;
 }
 
-.fenceLeft,
-.fenceRight {
-  position: fixed;
-}
-
-.treeLeft,
-.fenceLeft {
-  left: -100%;
-}
-
-.treeLeft,
-.fenceRight {
-  right: -100%;
-}
-
 .ghost {
   width: 120px;
   left: -120px;

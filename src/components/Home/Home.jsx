@@ -25,7 +25,7 @@ const Home = (props) => {
       .from ($(`.${s.grass}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0.5")
       .fromTo(
         $(`.${s.fenceLeft}`), 
-        { left: -fenceLeft.width() }, 
+        { left: -fenceLeftWidth }, 
         { left: -fenceLeftWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
         "3"
       )
