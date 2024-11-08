@@ -8,54 +8,59 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = (props) => {
 
   useEffect(()=>{
-    const tlLoad = gsap.timeline(),
-    fenceLeftWidth = $(`.${s.fenceLeft}`).width(),
-    fenceRightWidth = $(`.${s.fenceRight}`).width(),
-    treeLeftWidth = $(`.${s.treeLeft}`).width(),
-    treeRightWidth = $(`.${s.treeRight}`).width(),
-    fenceLeft = $(`.${s.fenceLeft}`),
-    fenceRight = $(`.${s.fenceRight}`);
+    const handleLoad = () => {
+      const tlLoad = gsap.timeline(),
+      fenceLeftWidth = $(`.${s.fenceLeft}`).width(),
+      fenceRightWidth = $(`.${s.fenceRight}`).width(),
+      treeLeftWidth = $(`.${s.treeLeft}`).width(),
+      treeRightWidth = $(`.${s.treeRight}`).width(),
+      fenceLeft = $(`.${s.fenceLeft}`),
+      fenceRight = $(`.${s.fenceRight}`);
 
-    fenceLeft.css('left', -fenceLeftWidth);    
-    fenceRight.css('right', -fenceRightWidth);
+      fenceLeft.css('left', -fenceLeftWidth);    
+      fenceRight.css('right', -fenceRightWidth);
 
-    tlLoad
-    .from ($(`.${s.graves}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0")
-    .from ($(`.${s.grass}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0.5")
-    .fromTo(
-      $(`.${s.fenceLeft}`), 
-      { left: -fenceLeft.width() }, 
-      { left: -fenceLeftWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
-      "3"
-    )
-    .fromTo(
-      $(`.${s.fenceRight}`), 
-      { right: -fenceRightWidth }, 
-      { right: -fenceRightWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
-      "3"
-    )
-    .fromTo(
-      $(`.${s.treeLeft}`), 
-      { left: -treeLeftWidth }, 
-      { left: -treeLeftWidth / 3, duration: 1.5, ease: "power2" }, 
-      "3"
-    )
-    .fromTo(
-      $(`.${s.treeRight}`), 
-      { right: -treeRightWidth }, 
-      { right: -treeRightWidth / 3, duration: 1.5, ease: "power2" }, 
-      "3"
-    )
-    .from(
-      $(`.${s.moreLink}`), 
-      { opacity: 0, y: window.innerHeight - $(`.${s.moreLink}`)[0].getBoundingClientRect().top, duration: 2 }, 
-      "3.5"
-    )
-    .from(
-      $(`.${s.sectionheader}`), 
-      { opacity: 0, y: -150, duration: 2 }, 
-      "4"
-    )
+      tlLoad
+      .from ($(`.${s.graves}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0")
+      .from ($(`.${s.grass}`), { bottom: "-600px", duration: 2.5, ease: "power3" }, "0.5")
+      .fromTo(
+        $(`.${s.fenceLeft}`), 
+        { left: -fenceLeft.width() }, 
+        { left: -fenceLeftWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
+        "3"
+      )
+      .fromTo(
+        $(`.${s.fenceRight}`), 
+        { right: -fenceRightWidth }, 
+        { right: -fenceRightWidth + window.innerWidth * 0.25, duration: 1, ease: "power2" }, 
+        "3"
+      )
+      .fromTo(
+        $(`.${s.treeLeft}`), 
+        { left: -treeLeftWidth }, 
+        { left: -treeLeftWidth / 3, duration: 1.5, ease: "power2" }, 
+        "3"
+      )
+      .fromTo(
+        $(`.${s.treeRight}`), 
+        { right: -treeRightWidth }, 
+        { right: -treeRightWidth / 3, duration: 1.5, ease: "power2" }, 
+        "3"
+      )
+      .from(
+        $(`.${s.moreLink}`), 
+        { opacity: 0, y: window.innerHeight - $(`.${s.moreLink}`)[0].getBoundingClientRect().top, duration: 2 }, 
+        "3.5"
+      )
+      .from(
+        $(`.${s.sectionheader}`), 
+        { opacity: 0, y: -150, duration: 2 }, 
+        "4"
+      )
+    }
+
+    window.addEventListener('load', handleLoad);
+    return () => window.removeEventListener('load', handleLoad);
   },[])
 
   useLayoutEffect(()=>{
