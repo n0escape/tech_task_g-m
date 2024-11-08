@@ -99,17 +99,17 @@ const Home = (props) => {
         <h2 className={s.sectionheader}>Helloween</h2>
         <a className={s.moreLink} href="#about">Show more</a>
       </div>
-      <img src="/assets/hero/tree-left.png" alt="tree left" className={s.treeLeft} />
-      <img src="/assets/hero/tree-right.png" alt="tree right" className={s.treeRight} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/tree-left.png`} alt="tree left" className={s.treeLeft} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/tree-right.png`} alt="tree right" className={s.treeRight} />
 
-      <img src="/assets/hero/graves.png" alt="graves" className={s.graves} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/graves.png`} alt="graves" className={s.graves} />
       
-      <img src="/assets/hero/fence-left.png" alt="fence left" className={s.fenceLeft} />
-      <img src="/assets/hero/fence-right.png" alt="fence right" className={s.fenceRight} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/fence-left.png`} alt="fence left" className={s.fenceLeft} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/fence-right.png`} alt="fence right" className={s.fenceRight} />
 
-      <img src="/assets/hero/grass.png" alt="grass" className={s.grass} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/grass.png`} alt="grass" className={s.grass} />
 
-      <img src="/assets/hero/ghost.png" alt="ghost" className={s.ghost} />
+      <img src={`${process.env.PUBLIC_URL}/assets/hero/ghost.png`} alt="ghost" className={s.ghost} />
     </section>
   )
 };
