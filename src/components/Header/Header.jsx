@@ -12,28 +12,25 @@ const Header = (props) => {
 
       const toggleMenu = () => {
         $(`.${s.top}, .${s.center}, .${s.bottom}`).width(diag)
+
         if($('nav').is(':visible')){
-            $(`.${s.anchors}`).fadeOut("fast");
-            $(`.${s.top}, .${s.center}, .${s.bottom}`).animate(
-                {
-                    height: "0",
-                }, 
+            $(`.${s.top}, .${s.center}, .${s.bottom}`).stop(true, true).animate(
+                {  height: "0" }, 
                 1000, 
                 () => {
-                    $('nav').hide("fast");
+                  $('nav').fadeOut("fast");
+                  $(`.${s.anchors}`).fadeOut("fast");
                 }
             );
-        }else{
-            $('nav').show("fast");
-            $(`.${s.top}, .${s.center}, .${s.bottom}`).show("fast").animate(
-                {
-                    height: diag,
-                }, 
-                1000, 
-                () => {
-                    $(`.${s.anchors}`).fadeIn("fast")
-                }
-            );
+        } else {
+          $('nav').fadeIn("fast").show();
+          $(`.${s.top}, .${s.center}, .${s.bottom}`).stop(true, true).show().animate(
+              { height: diag }, 
+              1000, 
+              () => {
+                  $(`.${s.anchors}`).fadeIn("fast")
+              }
+          );
         }
       }
 
